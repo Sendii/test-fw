@@ -46,7 +46,7 @@ class Route{
 			try {
 				call_user_func_array([$this->controller, $this->method], $this->params);
 			} catch (ArgumentCountError $e) {
-				echo $e->getPrevious();
+				echo $e->getMessage();
 			}
 		}else{
 			echo 'method '.$this->method.' di '.$this->root_controller.$this->controller.'.php tidak ditemukan';
