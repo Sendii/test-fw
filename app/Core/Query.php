@@ -17,7 +17,6 @@ class Query extends Database{
 	}
 
 	public function index(){
-		// var_dump($this->getNameTable());
 		$mysqli = new mysqli('localhost', 'root', '', 'test-fw');
 		$reply = [];
 		if ($mysqli->query('DESCRIBE '.$this->getNameTable())) {
@@ -25,9 +24,10 @@ class Query extends Database{
 			while ($row = $result->fetch_assoc())
 				$reply[] = $row;		
 
-			var_dump($reply);	
+			// var_dump($reply);
+			return $reply;
 		}else{
-			echo 'gaada';
+			echo 'table '.$this->getNameTable(). ' tidak ditemukan';
 			exit();
 		}		
 	}

@@ -3,7 +3,11 @@
 class Controller{
 	
 	public function view($file, $data = []){
-		require_once '../app/Views/'.$file.'.php';
+		if (file_exists('../views/'.$file.'.php')) {
+			require_once '../views/'.$file.'.php';
+		}else{
+			echo "file ".$file." tidak ditemukan";
+		}
 	}
 
 	public function model($file){
