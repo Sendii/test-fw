@@ -1,7 +1,8 @@
 <?php
 
-class HomeController{
+class HomeController extends Controller{
+	
 	function index($param1){
-		echo 'eaeaea'.$param1;
+		return $this->model('User')->index();
 	}
 }

@@ -1,5 +1,5 @@
 <?php
 require_once '../app/init.php';
-$route = new Route();
-$db    = new Database();
+$route    = new Route();
+$model    = new Model();
 ?>

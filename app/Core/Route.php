@@ -39,7 +39,7 @@ class Route{
 
 	function checkControllerFunction(){
 		$this->makeObject();
-		if (method_exists($this->objController, $this->method)) {
+		if (method_exists($this->controller, $this->method)) {
 			// call_user_func([$this->controller, $this->method]);
 			// $this->params = ['satus', 'dua'];
 			$this->getParams();
@@ -49,7 +49,7 @@ class Route{
 				echo $e->getMessage();
 			}
 		}else{
-			echo 'method '.$this->method.' di '.$this->root_controller.$this->controller.'.php tidak ditemukan';
+			echo 'method '.$this->method.' tidak ditemukan';
 		}
 	}
 
@@ -63,6 +63,6 @@ class Route{
 
 	function makeObject(){
 		require_once '../'.$this->root_controller.$this->controller.'.php';
-		$this->objController = new $this->controller;
+		$this->controller = new $this->controller;
 	}
 }
